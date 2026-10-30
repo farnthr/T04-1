@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T04 - SVG House & Garden</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        figure {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        figcaption {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        /* Light CSS for a neat border around the SVG */
+        svg {
+            border: 2px solid #333;
+            background-color: #87CEEB; /* Sky blue background */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        /* Step 2: Scoped styles only for the annotated copy */
+        #scene-annotated #annotations text {
+            font-size: 12px;
+            fill: #333;
+            font-weight: bold;
+        }
+        #scene-annotated #annotations line {
+            stroke: #333;
+            stroke-width: 1;
+            stroke-dasharray: 2,2;
+        }
+        #scene-annotated #annotations {
+            pointer-events: none; /* Prevents interaction with labels */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         STEP 1: Original Scene
+         ========================================== -->
+    <figure id="scene-original-figure">
+        <figcaption>Original scene (Step 1)</figcaption>
+        <svg id="scene-original" viewBox="0 0 800 500" width="800" height="500" aria-labelledby="svg-title-1 svg-desc-1">
+            <!-- Accessible markup -->
+            <title id="svg-title-1">House and Garden Scene</title>
+            <desc id="svg-desc-1">A simple SVG drawing showing a house, a tree, the sun, a cloud, a fence, and a path.</desc>
+
+            <!-- Grass (<rect>) -->
+            <rect x="0" y="250" width="800" height="250" fill="#7CFC00" />
+            
+            <!-- Sun (<circle>) -->
+            <circle cx="100" cy="100" r="40" fill="gold" />
+            
+            <!-- Cloud (<ellipse>) -->
+            <ellipse cx="250" cy="80" rx="60" ry="20" fill="white" />
+            
+            <!-- Tree Trunk (<line>) -->
+            <line x1="650" y1="200" x2="650" y2="350" stroke="#8B4513" stroke-width="30" />
+            <!-- Tree Leaves (<circle>) -->
+            <circle cx="650" cy="200" r="60" fill="forestgreen" />
+
+            <!-- House Body (<rect>) -->
+            <rect x="300" y="150" width="200" height="150" fill="#DEB887" />
+            <!-- Roof (<polygon>) -->
+            <polygon points="280,150 400,50 520,150" fill="#8B0000" />
+            <!-- Chimney (<rect>) -->
+            <rect x="450" y="70" width="30" height="60" fill="#A0522D" />
+            
+            <!-- Door (<rect>) -->
+            <rect x="380" y="220" width="40" height="80" fill="#8B4513" />
+            <!-- Door Knob (<circle>) -->
+            <circle cx="410" cy="260" r="4" fill="black" />
+            
+            <!-- Windows (<rect>) -->
+            <rect x="320" y="180" width="40" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+            <rect x="440" y="180" width="40" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+
+            <!-- Fence (<polyline>) -->
+            <polyline points="0,300 50,270 100,300 150,270 200,300 250,270 300,300 500,300 550,270 600,300 650,270 700,300 750,270 800,300" fill="none" stroke="white" stroke-width="8" />
+
+            <!-- Curved Path (<path>) -->
+            <path d="M400,300 Q450,400 350,500" fill="none" stroke="#D3D3D3" stroke-width="20" />
+
+            <!-- Caption (<text>) -->
+            <text x="400" y="470" text-anchor="middle" font-size="24" fill="#333">Welcome to the House & Garden</text>
+        </svg>
+    </figure>
+
+    <!-- ==========================================
+         STEP 2: Annotated Scene
+         ========================================== -->
+    <figure id="scene-annotated-figure">
+        <figcaption>Annotated scene (Step 2)</figcaption>
+        <svg id="scene-annotated" viewBox="0 0 800 500" width="800" height="500" aria-labelledby="svg-title-2 svg-desc-2">
+            <title id="svg-title-2">Annotated House and Garden</title>
+            <desc id="svg-desc-2">The same scene as before but with coordinates labeled to show SVG structure.</desc>
+
+            <!-- Exact same shapes as Step 1 -->
+            <rect x="0" y="250" width="800" height="250" fill="#7CFC00" />
+            <circle cx="100" cy="100" r="40" fill="gold" />
+            <ellipse cx="250" cy="80" rx="60" ry="20" fill="white" />
+            <line x1="650" y1="200" x2="650" y2="350" stroke="#8B4513" stroke-width="30" />
+            <circle cx="650" cy="200" r="60" fill="forestgreen" />
+            <rect x="300" y="150" width="200" height="150" fill="#DEB887" />
+            <polygon points="280,150 400,50 520,150" fill="#8B0000" />
+            <rect x="450" y="70" width="30" height="60" fill="#A0522D" />
+            <rect x="380" y="220" width="40" height="80" fill="#8B4513" />
+            <circle cx="410" cy="260" r="4" fill="black" />
+            <rect x="320" y="180" width="40" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+            <rect x="440" y="180" width="40" height="40" fill="lightblue" stroke="black" stroke-width="2"/>
+            <polyline points="0,300 50,270 100,300 150,270 200,300 250,270 300,300 500,300 550,270 600,300 650,270 700,300 750,270 800,300" fill="none" stroke="white" stroke-width="8" />
+            <path d="M400,300 Q450,400 350,500" fill="none" stroke="#D3D3D3" stroke-width="20" />
+            <text x="400" y="470" text-anchor="middle" font-size="24" fill="#333">Welcome to the House & Garden</text>
+
+            <!-- Annotations Group (Step 2 Requirement) -->
+            <g id="annotations">
+                <!-- Circle annotation -->
+                <line x1="100" y1="100" x2="160" y2="50" />
+                <text x="165" y="45">circle: cx=100, cy=100, r=40</text>
+                
+                <!-- Ellipse annotation -->
+                <line x1="250" y1="80" x2="310" y2="40" />
+                <text x="315" y="35">ellipse: cx=250, cy=80, rx=60, ry=20</text>
+                
+                <!-- Rect annotation -->
+                <line x1="300" y1="150" x2="220" y2="120" />
+                <text x="70" y="115">rect: x=300, y=150, w=200, h=150</text>
+                
+                <!-- Polygon annotation -->
+                <line x1="400" y1="50" x2="480" y2="30" />
+                <text x="485" y="25">polygon: points="280,150 400,50 520,150"</text>
+                
+                <!-- Line annotation (Tree trunk) -->
+                <line x1="650" y1="200" x2="710" y2="170" />
+                <text x="715" y="165">line: x1=650, y1=200, x2=650, y2=350</text>
+
+                <!-- Polyline annotation (Fence) -->
+                <line x1="50" y1="270" x2="50" y2="240" />
+                <text x="10" y="235">polyline: points="0,300 50,270..."</text>
+
+                <!-- Path annotation -->
+                <line x1="425" y1="350" x2="520" y2="380" />
+                <text x="525" y="385">path: d="M400,300 Q450,400 350,500"</text>
+
+                <!-- Text annotation -->
+                <line x1="400" y1="470" x2="400" y2="440" />
+                <text x="310" y="435">text: x=400, y=470</text>
+            </g>
+        </svg>
+    </figure>
+
+    <!-- ==========================================
+         STEP 3: Adjusted Scene
+         ========================================== -->
+    <figure id="scene-adjusted-figure">
+        <figcaption>Adjusted scene (Step 3)</figcaption>
+        <svg id="scene-adjusted" viewBox="0 0 800 500" width="800" height="500" aria-labelledby="svg-title-3 svg-desc-3">
+            <title id="svg-title-3">Adjusted House and Garden</title>
+            <desc id="svg-desc-3">The scene with improved colors, dashed lines, stepping stones, mailbox, and smoke.</desc>
+            
+            <rect x="0" y="250" width="800" height="250" fill="#556B2F" /> <!-- Darker grass -->
+            <circle cx="100" cy="100" r="40" fill="#FFD700" /> <!-- Brighter sun -->
+            <ellipse cx="250" cy="80" rx="60" ry="20" fill="#F0F8FF" />
+
+            <!-- Repositioned Tree (Translate) -->
+            <g transform="translate(40, -20)">
+                <line x1="650" y1="200" x2="650" y2="350" stroke="#5C4033" stroke-width="25" />
+                <circle cx="650" cy="200" r="65" fill="#2E8B57" /> <!-- SeaGreen leaves -->
+            </g>
+
+            <!-- Repositioned House (Translate) -->
+            <g transform="translate(-30, 20)">
+                <rect x="300" y="150" width="200" height="150" fill="#F4A460" /> <!-- SandyBrown body -->
+                <polygon points="280,150 400,50 520,150" fill="#800000" />
+                
+                <!-- Chimney Smoke added -->
+                <rect x="450" y="70" width="30" height="60" fill="#8B4513" />
+                <ellipse cx="465" cy="50" rx="10" ry="5" fill="lightgray" opacity="0.8"/>
+                <ellipse cx="475" cy="35" rx="15" ry="8" fill="lightgray" opacity="0.6"/>
+                <ellipse cx="480" cy="15" rx="20" ry="10" fill="lightgray" opacity="0.4"/>
+
+                <rect x="380" y="220" width="40" height="80" fill="#A0522D" />
+                <circle cx="410" cy="260" r="4" fill="#000" />
+                <rect x="320" y="180" width="40" height="40" fill="#B0E0E6" stroke="#333" stroke-width="3"/>
+                <rect x="440" y="180" width="40" height="40" fill="#B0E0E6" stroke="#333" stroke-width="3"/>
+            </g>
+
+            <!-- Dashed Fence -->
+            <polyline points="0,300 50,270 100,300 150,270 200,300 230,285 460,285 500,300 550,270 600,300 650,270 700,300 750,270 800,300" fill="none" stroke="#FFF" stroke-width="6" stroke-dasharray="15, 5" />
+
+            <!-- Path changed to stepping stones using stroke-dasharray -->
+            <path d="M370,320 Q420,400 320,500" fill="none" stroke="#A9A9A9" stroke-width="25" stroke-dasharray="25, 20" stroke-linecap="round"/>
+
+            <!-- Mailbox added -->
+            <g transform="translate(180, 270)">
+                <line x1="10" y1="20" x2="10" y2="60" stroke="#8B4513" stroke-width="8"/>
+                <rect x="0" y="0" width="30" height="20" fill="#708090" rx="5" ry="5"/>
+                <path d="M30,10 L40,5 L30,20 Z" fill="red" /> <!-- Mail flag -->
+            </g>
+
+            <text x="400" y="470" text-anchor="middle" font-size="24" fill="#FFF" font-weight="bold">Welcome to the House & Garden</text>
+        </svg>
+    </figure>
+
+    <!-- ==========================================
+         STEP 4: Grouped Scene
+         ========================================== -->
+    <figure id="scene-grouped-figure">
+        <figcaption>Grouped windows scene (Step 4)</figcaption>
+        <svg id="scene-grouped" viewBox="0 0 800 500" width="800" height="500" aria-labelledby="svg-title-4 svg-desc-4">
+            <title id="svg-title-4">House with Grouped Windows</title>
+            <desc id="svg-desc-4">Same as Step 3, but the windows are refactored into a reusable SVG group.</desc>
+            
+            <!-- Define the reusable window group -->
+            <defs>
+                <g id="window">
+                    <rect x="0" y="0" width="40" height="40" fill="#B0E0E6" stroke="#333" stroke-width="3"/>
+                    <!-- Mullions (inner cross lines for the window) -->
+                    <line x1="20" y1="0" x2="20" y2="40" stroke="#333" stroke-width="2"/>
+                    <line x1="0" y1="20" x2="40" y2="20" stroke="#333" stroke-width="2"/>
+                </g>
+            </defs>
+
+            <!-- Background and scenery from Step 3 -->
+            <rect x="0" y="250" width="800" height="250" fill="#556B2F" />
+            <circle cx="100" cy="100" r="40" fill="#FFD700" />
+            <ellipse cx="250" cy="80" rx="60" ry="20" fill="#F0F8FF" />
+
+            <g transform="translate(40, -20)">
+                <line x1="650" y1="200" x2="650" y2="350" stroke="#5C4033" stroke-width="25" />
+                <circle cx="650" cy="200" r="65" fill="#2E8B57" />
+            </g>
+
+            <g transform="translate(-30, 20)">
+                <rect x="300" y="150" width="200" height="150" fill="#F4A460" />
+                <polygon points="280,150 400,50 520,150" fill="#800000" />
+                
+                <rect x="450" y="70" width="30" height="60" fill="#8B4513" />
+                <ellipse cx="465" cy="50" rx="10" ry="5" fill="lightgray" opacity="0.8"/>
+                <ellipse cx="475" cy="35" rx="15" ry="8" fill="lightgray" opacity="0.6"/>
+                <ellipse cx="480" cy="15" rx="20" ry="10" fill="lightgray" opacity="0.4"/>
+
+                <rect x="380" y="220" width="40" height="80" fill="#A0522D" />
+                <circle cx="410" cy="260" r="4" fill="#000" />
+                
+                <!-- 
+                  Instead of drawing two separate rects for windows, we USE the grouped window.
+                  This demonstrates the benefit of <g> and <use>: write code once, use it multiple times!
+                  We position them using transform="translate(x, y)" 
+                -->
+                <use href="#window" transform="translate(320, 180)" />
+                <use href="#window" transform="translate(440, 180)" />
+            </g>
+
+            <polyline points="0,300 50,270 100,300 150,270 200,300 230,285 460,285 500,300 550,270 600,300 650,270 700,300 750,270 800,300" fill="none" stroke="#FFF" stroke-width="6" stroke-dasharray="15, 5" />
+            <path d="M370,320 Q420,400 320,500" fill="none" stroke="#A9A9A9" stroke-width="25" stroke-dasharray="25, 20" stroke-linecap="round"/>
+
+            <g transform="translate(180, 270)">
+                <line x1="10" y1="20" x2="10" y2="60" stroke="#8B4513" stroke-width="8"/>
+                <rect x="0" y="0" width="30" height="20" fill="#708090" rx="5" ry="5"/>
+                <path d="M30,10 L40,5 L30,20 Z" fill="red" />
+            </g>
+
+            <text x="400" y="470" text-anchor="middle" font-size="24" fill="#FFF" font-weight="bold">Welcome to the House & Garden</text>
+        </svg>
+    </figure>
+
+</body>
+</html>
